@@ -1,0 +1,18 @@
+---
+ - name: "First Challenge"
+   hosts: localhost
+
+   tasks:
+    - name: test reachability
+      ping:
+      
+    - name: display multiple file contents
+      ansible.builtin.debug: var=item
+      with_file:
+        - "files/text1.txt"
+        - "files/text2.txt"
+
+    - name: find module
+      find:
+        path: ./files
+        file_type: file
